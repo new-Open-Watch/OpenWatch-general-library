@@ -3,4 +3,5 @@ idf_component_register(
         "src/FS.cpp"
     INCLUDE_DIRS
         "include"
+    REQUIRES driver fatfs sdmmc
 )
