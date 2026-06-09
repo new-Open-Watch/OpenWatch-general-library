@@ -1,7 +1,6 @@
-add_library(owgl STATIC
-    src/FS.cpp
+idf_component_register(
+    SRCS
+        "src/FS.cpp"
+    INCLUDE_DIRS
+        "include"
 )
-
-target_include_directories(owgl PUBLIC include)
-
-target_link_libraries(owgl PUBLIC idf::esp_log)
