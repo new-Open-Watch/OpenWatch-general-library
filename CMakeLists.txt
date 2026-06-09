@@ -1,5 +1,4 @@
 idf_component_register(
-    SRCS "src/FS.cpp"
-    INCLUDE_DIRS "include"
-    REQUIRES driver sdmmc fatfs
+    SRCS "${owgl_SOURCE_DIR}/src/FS.c"
+    INCLUDE_DIRS "${owgl_SOURCE_DIR}/include"
 )
