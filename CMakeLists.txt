@@ -1,5 +1,5 @@
 add_library(owgl STATIC
-    src/FS.cpp
+    src
 )
 
 target_include_directories(owgl PUBLIC include)
