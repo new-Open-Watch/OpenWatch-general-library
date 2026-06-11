@@ -42,7 +42,10 @@ void init()
     ESP_LOGI(TAG, "SD mounted");
 }
 FILE open(const char *filePath, const char *mode){
-    FILE *f = fopen(MOUNT_POINT filePath, mode);
+    char path[256];
+    snprintf(path, sizeof(path), "%s%s", MOUNT_POINT, filePath);
+
+    FILE *f = fopen(path, mode);
     return f;
 }
 template <typename t>
