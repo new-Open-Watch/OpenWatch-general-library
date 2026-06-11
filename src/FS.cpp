@@ -42,7 +42,7 @@ void init()
     ESP_LOGI(TAG, "SD mounted");
 }
 FILE open(const char *filePath, const char *mode){
-    FILE *f = fopen(MOUNT_POINT filePath, *mode);
+    FILE *f = fopen(MOUNT_POINT filePath, mode);
     return f;
 }
 template <typename t>
@@ -50,7 +50,7 @@ bool write(const char *path, const t& data){
     FILE *f = open(path,"wb");
     if (!f) return false;
 
-    size_t written = fwrite(&data, sizeof(T), 1, f);
+    size_t written = fwrite(&data, sizeof(data), 1, f);
     fclose(f);
 
     return written == 1;
