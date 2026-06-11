@@ -41,19 +41,17 @@ void init()
     }
     ESP_LOGI(TAG, "SD mounted");
 }
-void test()
-{
-    FILE *f = fopen(MOUNT_POINT "test.txt", "w");
-    if (f)
-    {
-        fprintf(f, "test");
-    }
-    char buf[64];
-    f = fopen(MOUNT_POINT "/hello.txt", "r");
-    if (f)
-    {
-        fgets(buf, sizeof(buf), f);
-        fclose(f);
-        ESP_LOGI(TAG, "Read: %s", buf);
-    }
+FILE open(const char *filePath, const char *mode){
+    FILE *f = fopen(MOUNT_POINT filePath, *mode);
+    return f;
+}
+template <typename t>
+bool write(const char *path, const t& data){
+    FILE *f = open(path,"wb");
+    if (!f) return false;
+
+    size_t written = fwrite(&data, sizeof(T), 1, f);
+    fclose(f);
+
+    return written == 1;
 }
