@@ -1,4 +1,12 @@
 #pragma once
+#include "esp_log.h"
+#include "esp_vfs_fat.h"
+#include "driver/sdspi_host.h"
+#include "driver/spi_common.h"
+#include "sd_protocol_defs.h"
+
+#include <stdio.h>
+#include <string.h>
 
 #define MOUNT_POINT "/sdcard"
 

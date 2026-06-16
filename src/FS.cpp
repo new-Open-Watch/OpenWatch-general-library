@@ -1,12 +1,5 @@
 #include "FS.hpp"
 
-#include <stdio.h>
-#include <string.h>
-#include "esp_log.h"
-#include "esp_vfs_fat.h"
-#include "driver/sdspi_host.h"
-#include "driver/spi_common.h"
-#include "sd_protocol_defs.h"
 
 static const char *TAG = "sd_spi";
 static sdmmc_card_t *card = nullptr;
