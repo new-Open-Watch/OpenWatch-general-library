@@ -8,5 +8,8 @@
 #define PIN_MOSI 35
 #define PIN_CS   34
 
-void init();
-void test();
+
+void sdinit();
+FILE* sdopen(const char *filePath, const char *mode);
+template <typename t>
+bool sdwrite(const char *path, const t& data)

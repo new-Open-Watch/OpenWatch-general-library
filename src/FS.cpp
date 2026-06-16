@@ -11,7 +11,7 @@
 static const char *TAG = "sd_spi";
 static sdmmc_card_t *card = nullptr;
 
-void init()
+void sdinit()
 {
     spi_bus_config_t bus_cfg = {};
     bus_cfg.mosi_io_num = PIN_MOSI;
@@ -41,15 +41,15 @@ void init()
     }
     ESP_LOGI(TAG, "SD mounted");
 }
-FILE* open(const char *filePath, const char *mode){
+FILE* sdopen(const char *filePath, const char *mode){
     char path[256];
     snprintf(path, sizeof(path), "%s%s", MOUNT_POINT, filePath);
 
     FILE *f = fopen(path, mode);
     return f;
 }
-template <typename t>
-bool write(const char *path, const t& data){
+
+bool sdwrite(const char *path, const t& data){
     FILE *f = open(path,"wb");
     if (!f) return false;
 
