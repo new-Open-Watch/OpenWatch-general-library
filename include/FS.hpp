@@ -22,4 +22,12 @@ static sdmmc_card_t *card = nullptr;
 void sdinit();
 FILE* sdopen(const char *filePath, const char *mode);
 template <typename t>
-bool sdwrite(const char *path, const t& data)
+bool sdwrite(const char *path, const t& data){
+    FILE *f = open(path,"wb");
+    if (!f) return false;
+
+    size_t written = fwrite(&data, sizeof(data), 1, f);
+    fclose(f);
+
+    return written == 1;
+}

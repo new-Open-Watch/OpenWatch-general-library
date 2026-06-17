@@ -41,12 +41,4 @@ FILE* sdopen(const char *filePath, const char *mode){
     return f;
 }
 
-bool sdwrite(const char *path, const t& data){
-    FILE *f = open(path,"wb");
-    if (!f) return false;
 
-    size_t written = fwrite(&data, sizeof(data), 1, f);
-    fclose(f);
-
-    return written == 1;
-}
