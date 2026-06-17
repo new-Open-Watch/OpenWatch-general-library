@@ -23,7 +23,7 @@ void sdinit();
 FILE* sdopen(const char *filePath, const char *mode);
 template <typename t>
 bool sdwrite(const char *path, const t& data){
-    FILE *f = open(path,"wb");
+    FILE *f = sdopen(path,"wb");
     if (!f) return false;
 
     size_t written = fwrite(&data, sizeof(data), 1, f);
