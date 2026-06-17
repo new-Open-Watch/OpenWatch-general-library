@@ -1,8 +1,7 @@
 #include "FS.hpp"
 
 
-static const char *TAG = "sd_spi";
-static sdmmc_card_t *card = nullptr;
+
 
 void sdinit()
 {

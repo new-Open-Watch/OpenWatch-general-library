@@ -16,6 +16,8 @@
 #define PIN_MOSI 35
 #define PIN_CS   34
 
+static const char *TAG = "sd_spi";
+static sdmmc_card_t *card = nullptr;
 
 void sdinit();
 FILE* sdopen(const char *filePath, const char *mode);
